@@ -45,8 +45,12 @@ const store = async (req, res) => {
 const update = async (req, res) => {
   if (db.teams.hasOwnProperty(req.params.id)) {
     delete req.body.id; // Por las dudas, quitamos el id que eventualmente venga en el request.
+
+    // con el spread operator podemos actualizar valores de un objeto. en este caso '...req.body' pisa los valores anteriores
     db.teams[req.params.id] = { ...db.teams[req.params.id], ...req.body };
+
     // Alternativa: db.teams[req.params.id] = Object.assign(db.teams[req.params.id], req.body);
+
     res.json(db.teams[req.params.id]);
   } else {
     res.status(404).json({ error: "Equipo no encontrado" });

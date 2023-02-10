@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplicar</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <div class="d-flex justify-content-center">
+        <div class="border shadow p-4 bg-body rounded">
+          <form action="/multiplicar" method="POST">
+            <h1 class="fs-3 mb-3">Ingresar dos números para multiplicar</h1>
+            <div class="mb-3">
+              <label for="num1" class="form-label">Número 1</label>
+              <input
+                type="number"
+                class="form-control"
+                id="num1"
+                name="num1"
+                placeholder="Ingresar el primer número..."
+              />
+            </div>
+            <div class="mb-3">
+              <label for="num2" class="form-label">Número 2</label>
+              <input
+                type="number"
+                class="form-control"
+                id="num2"
+                name="num2"
+                placeholder="Ingresar el segundo número..."
+              />
+            </div>
+            <button type="submit" class="btn btn-success">Multiplicar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

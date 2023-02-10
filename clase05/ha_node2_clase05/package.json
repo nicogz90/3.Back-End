@@ -1,0 +1,19 @@
+{
+  "name": "ejercicio_clase05",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Hack Academy",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3",
+    "mongoose-beautiful-unique-validation": "^7.1.1"
+  },
+  "keywords": [],
+  "description": ""
+}

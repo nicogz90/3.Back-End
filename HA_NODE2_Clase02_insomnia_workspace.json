@@ -1,0 +1,167 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-06-26T17:29:37.812Z",
+	"__export_source": "insomnia.desktop.app:v5.16.6",
+	"resources": [
+		{
+			"_id": "wrk_d77adad546624b5984a015342b69560c",
+			"created": 1528487803051,
+			"description": "",
+			"modified": 1530034123692,
+			"name": "HA – NODE2 – Clase 02",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_e65b142e93b941f0a69b8650817b99c4",
+			"color": null,
+			"created": 1528487803073,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1528487803073,
+			"name": "New Environment",
+			"parentId": "wrk_d77adad546624b5984a015342b69560c",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_129fc2cf101e4ea8b2cdb7ab292f0bca",
+			"cookies": [],
+			"created": 1528487803082,
+			"modified": 1528487803082,
+			"name": "Default Jar",
+			"parentId": "wrk_d77adad546624b5984a015342b69560c",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_73063cc9f57047f7ab86ec6ce6f3e5f7",
+			"authentication": {
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1528487815801,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1530033724931,
+			"method": "GET",
+			"modified": 1530034074860,
+			"name": "Get teams",
+			"parameters": [],
+			"parentId": "wrk_d77adad546624b5984a015342b69560c",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "localhost:3000/teams",
+			"_type": "request"
+		},
+		{
+			"_id": "req_51469090555744f887dc41db86bfbf17",
+			"authentication": {},
+			"body": {},
+			"created": 1529707228842,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1530033724884.125,
+			"method": "DELETE",
+			"modified": 1530034082817,
+			"name": "Delete team",
+			"parameters": [],
+			"parentId": "wrk_d77adad546624b5984a015342b69560c",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "localhost:3000/teams/cl",
+			"_type": "request"
+		},
+		{
+			"_id": "req_916951136bd34bfa9b609c62deecd78c",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"id\": \"uy\",\n\t\"name\": \"Urugauy\",\n\t\"flag\": \"🇺🇾\"\n}"
+			},
+			"created": 1529707272422,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_3112af8011bc422897c6a3140b494fd2",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1530033724893.5,
+			"method": "POST",
+			"modified": 1530034079105,
+			"name": "Create team",
+			"parameters": [],
+			"parentId": "wrk_d77adad546624b5984a015342b69560c",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "localhost:3000/teams",
+			"_type": "request"
+		},
+		{
+			"_id": "req_6e46c4baa4844297a9c620ad35eac6a5",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"name\": \"Uruguay\"\n}"
+			},
+			"created": 1529707373823,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_aca9de1fccaa41f6ba1dc955ea8a14e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1530033724887.25,
+			"method": "PATCH",
+			"modified": 1530034080935,
+			"name": "Edit team",
+			"parameters": [],
+			"parentId": "wrk_d77adad546624b5984a015342b69560c",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "localhost:3000/teams/uy",
+			"_type": "request"
+		},
+		{
+			"_id": "req_0eff36c11b0e41d1aaea86089c92bfc6",
+			"authentication": {},
+			"body": {},
+			"created": 1529707550021,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1530033724906,
+			"method": "GET",
+			"modified": 1530034076688,
+			"name": "Get team",
+			"parameters": [],
+			"parentId": "wrk_d77adad546624b5984a015342b69560c",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "localhost:3000/teams/uy",
+			"_type": "request"
+		}
+	]
+}

@@ -9,13 +9,13 @@ const index = async (req, res) => {
     [sortBy]: order, // creamos una key en el objecto usando el valor de sortBy
   };
 
-  const teams = await Team.find({}).sort(sortCriteria).skip(skip);
-  /* Otra forma:
   const teams = await Team.find({}).setOptions({
     sort: sortCriteria,
     skip: skip,
-  }); */
-
+  });
+  /* Otra forma:
+  const teams = await Team.find({}).sort(sortCriteria).skip(skip);
+  */
   res.json(teams);
 };
 

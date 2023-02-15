@@ -9,22 +9,8 @@ const index = async (req, res) => {
     [sortBy]: order, // creamos una key en el objecto usando el valor de sortBy
   };
   const teams = await Team.find({}).sort(sortCriteria).skip(skip);
+  console.log(teams);
   res.json(teams);
-};
-
-const store = async (req, res) => {
-  try {
-    const newTeam = await Team.create(req.body); // OJO: Esto puede ser peligroso debido al "Mass Assignment".
-    return res.status(201).json(newTeam);
-  } catch (error) {
-    if (error instanceof mongoose.Error.ValidationError) {
-      res.status(400).json(error);
-    } else {
-      res.status(500).json({
-        error: "Error inesperado con la base de datos.",
-      });
-    }
-  }
 };
 
 const show = async (req, res) => {
@@ -38,6 +24,21 @@ const show = async (req, res) => {
     res.json(team);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+const store = async (req, res) => {
+  try {
+    const newTeam = await Team.create(req.body); // OJO: Esto puede ser peligroso debido al "Mass Assignment". Por ejemplo si nos pasan un array muy grande por el req.body
+    return res.status(201).json(newTeam);
+  } catch (error) {
+    if (error instanceof mongoose.Error.ValidationError) {
+      res.status(400).json(error);
+    } else {
+      res.status(500).json({
+        error: "Error inesperado con la base de datos.",
+      });
+    }
   }
 };
 
@@ -86,8 +87,8 @@ const incrementGoals = async (req, res) => {
   try {
     const team = await Team.findOneAndUpdate(
       { code: req.params.code },
-      { $inc: { goals: 1 } },
-      // con estas opciones nos aseguramos que el findOneAndUpdate nos devuelve la version nueva del documento :D
+      { $inc: { goals: 1 } }, // Update Operators: modificadores para usar en operaciones de actualización. de forma eficiente y segura (atómica >> transacciones)
+      // con esta opción nos aseguramos que el findOneAndUpdate nos devuelve la version nueva del documento :D
       { new: true }
     );
     if (!team) {
@@ -109,8 +110,8 @@ const decrementGoals = async (req, res) => {
         // Vamos a actualizar solo si al menos tiene 1 gol. No queremos que quede con goles negativos
         goals: { $gte: 1 },
       },
-      // con estas opciones nos aseguramos que el findOneAndUpdate nos devuelve la version nueva del documento :D
       { $inc: { goals: -1 } },
+      // con esta opción nos aseguramos que el findOneAndUpdate nos devuelve la version nueva del documento :D
       { new: true }
     );
 

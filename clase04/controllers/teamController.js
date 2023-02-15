@@ -12,6 +12,7 @@ const index = async (req, res) => {
   const teams = await Team.find({}).setOptions({
     sort: sortCriteria,
     skip: skip,
+    // lean: true // Cuando esta opción es true en lugar de retornar un documento de Mongoose, lo convierte a objeto de JavaScript >> queda menos pesado, pero se pierden funcionalidades de Mongoose, como por ejemplo .save()
   });
   /* Otra forma:
   const teams = await Team.find({}).sort(sortCriteria).skip(skip);
@@ -75,7 +76,7 @@ const show = async (req, res) => {
 
 const store = async (req, res) => {
   try {
-    const newTeam = await Team.create(req.body); // OJO: Esto puede ser peligroso debido al "Mass Assignment".
+    const newTeam = await Team.create(req.body); // OJO: Esto puede ser peligroso debido al "Mass Assignment". Por ejemplo si nos pasan un array muy grande por el req.body
     return res.status(201).json(newTeam);
   } catch (error) {
     if (error instanceof mongoose.Error.ValidationError) {

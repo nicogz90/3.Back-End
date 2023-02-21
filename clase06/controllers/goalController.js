@@ -5,7 +5,7 @@ const Goal = require("../models/Goal");
 module.exports = {
   index: async (req, res) => {
     const goals = await Goal.find({})
-      .populate("teamFor", "name")
+      .populate("teamFor", "name") // popula solo con "name"
       .populate("teamAgainst", "name")
       .lean(); // Para mejorar la performance. Cuando esta opción es true en lugar de retornar un documento de Mongoose, lo convierte a objeto de JavaScript >> queda menos pesado, pero se pierden funcionalidades de Mongoose, como por ejemplo .save()
     res.json(goals);
@@ -22,16 +22,22 @@ module.exports = {
        */
 
       // console.log("req.body >>> ", req.body);
-      const teamFor = await Team.findOne({ code: req.body.teamFor }); // con .find no funciona ya que devuelve un array de objetos, y precisamos un objeto
+      const teamForPromise = Team.findOne({ code: req.body.teamFor }); // con .find no funciona ya que devuelve un array de objetos, y precisamos un objeto
       // console.log("teamFor >>> ", teamFor);
-      const teamAgainst = await Team.findOne({ code: req.body.teamAgainst });
+      const teamAgainstPromise = Team.findOne({ code: req.body.teamAgainst });
       // console.log("teamAgainst >>> ", teamAgainst);
+
+      // Resolvemos todas las promesas de manera concurrente, en lugar de esperarlas una a la vez (es más eficiente):
+      const [teamFor, teamAgainst] = await Promise.all([
+        teamForPromise,
+        teamAgainstPromise,
+      ]);
 
       const newGoal = await Goal.create({
         player: req.body.player,
         minute: req.body.minute,
-        teamFor,
-        teamAgainst,
+        teamFor: teamFor,
+        teamAgainst: teamAgainst,
       }); // no funciona con .create(req.body)
       // console.log("newGoal >>> ", newGoal);
 
@@ -94,13 +100,14 @@ module.exports = {
         });
       }
 
-      goal.teamFor.goalsScored.pull(goal._id);
+      // destruyo relaciones con los teams (goal.teamFor) y (goal.teamAgainst):
+      goal.teamFor.goalsScored.pull(goal._id); // disponible gracias a populate
       goal.teamFor.save();
-      goal.teamAgainst.goalsConceded.pull(goal._id);
+      goal.teamAgainst.goalsConceded.pull(goal._id); // disponible gracias a populate
       goal.teamAgainst.save();
 
       /**
-       * Alternativa:
+       * Mejor alternativa con UPDATE OPERATORS:
        *   await Team.findByIdAndUpdate(goal.teamFor._id, {
        *     $pull: { goalsScored: goal._id },
        *   });

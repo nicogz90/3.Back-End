@@ -13,8 +13,10 @@ module.exports = {
 
   store: async (req, res) => {
     try {
-      const newUser = await User.create(req.body); // OJO: Esto puede ser peligroso debido al "Mass Assignment".
-      const token = jwt.sign({ sub: newUser.id }, process.env.JWT_SECRET);
+      // OJO: Esto puede ser peligroso debido al "Mass Assignment".
+      const newUser = await User.create(req.body); // este es un objeto de MONGOOSE, no de JS, entonces no puedo modificarlo tan facilmente --> saco la contrasena directamente desde el modelo
+
+      const token = jwt.sign({ sub: newUser._id }, process.env.JWT_SECRET);
       res.json({
         accessToken: token,
         user: newUser,

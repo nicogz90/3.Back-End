@@ -27,8 +27,8 @@ const userSchema = new Schema(
   }
 );
 
-// Estos son Hooks/Middlewares de Mongoose. 
-// Son funciones que se ejecutan antes o después de ciertas acciones.
+// Hooks/Middlewares de Mongoose.
+// Son funciones que se ejecutan antes o después de ciertas acciones (en este caso 'save').
 
 // Antes de guardar un usuario, se "encripta" su contraseña.
 userSchema.pre("save", async function (next) {
@@ -45,6 +45,7 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
 };
 
 // toJSON es un método que se ejecuta antes de devolver un objeto al cliente.
+// Sobre-escribo la funcion toJSON que viene por defecto de mongoose.
 // Podemos pensarlo como la opcion "lean" de mongoose.
 // Cuando se devuelve un objeto al cliente, se le quita el campo password.
 userSchema.methods.toJSON = function () {

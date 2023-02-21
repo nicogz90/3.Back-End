@@ -5,7 +5,7 @@ const { hashSync } = require("bcrypt");
 
 const userSchema = new Schema({
   firstname: { type: String },
-  lastname: String,
+  lastname: String, // en este caso se puede simplificar así
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });

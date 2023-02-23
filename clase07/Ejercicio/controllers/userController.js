@@ -14,14 +14,14 @@ module.exports = {
   store: async (req, res) => {
     try {
       // OJO: Esto puede ser peligroso debido al "Mass Assignment".
-      const newUser = await User.create(req.body); // este es un objeto de MONGOOSE, no de JS, entonces no puedo modificarlo tan facilmente --> saco la contrasena directamente desde el modelo
+      // este es un objeto de MONGOOSE, no de JS, entonces no puedo modificarlo tan facilmente --> saco la contraseña directamente desde el modelo
+      const newUser = await User.create(req.body);
 
       const token = jwt.sign({ sub: newUser._id }, process.env.JWT_SECRET);
       res.json({
         accessToken: token,
         user: newUser,
       });
-      return res.status(201).json(newUser);
     } catch (error) {
       if (error instanceof mongoose.Error.ValidationError) {
         res.status(400).json(error);

@@ -1,0 +1,269 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2021-08-31T01:46:20.371Z",
+  "__export_source": "insomnia.desktop.app:v2021.5.1",
+  "resources": [
+    {
+      "_id": "req_a2edfe46fbd64b08b3dadc1b269469c8",
+      "parentId": "fld_c5dd84e4d90d4f75a9f49e55f3f8d4f0",
+      "modified": 1630374273385,
+      "created": 1630374251547,
+      "url": "localhost:3000/tweets/6126da051011b14c94f1f825",
+      "name": "/tweets/:id",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1630374251547,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_c5dd84e4d90d4f75a9f49e55f3f8d4f0",
+      "parentId": "wrk_d77adad546624b5984a015342b69560c",
+      "modified": 1629763624669,
+      "created": 1629763624669,
+      "name": "ProyectoFinal",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1629763624669,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_d77adad546624b5984a015342b69560c",
+      "parentId": null,
+      "modified": 1628547570070,
+      "created": 1528487803051,
+      "name": "HA – NODE2 – G2107",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_8c99aa97ccb74649bb918e72605ae959",
+      "parentId": "fld_c5dd84e4d90d4f75a9f49e55f3f8d4f0",
+      "modified": 1630374234202,
+      "created": 1629930688194,
+      "url": "localhost:3000/tweets",
+      "name": "/tweets",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"text\": \"original\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_6d510feefddb4ea9b15380dd55862865"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InlvZSIsImVtYWlsIjoieW9lQGEuYSIsImlkIjoiNjEyZDViNDMzZTkxNDI2MThjOWVjNzc3IiwiaWF0IjoxNjMwMzYyNDM1fQ.uZgvuvpUkoU4wYmXoekUrt8kBLWydHshLLoBBPKJzUg",
+        "disabled": false
+      },
+      "metaSortKey": -1630374201828,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0ab54d4736ca4f7b915c2f222cd8ae32",
+      "parentId": "fld_c5dd84e4d90d4f75a9f49e55f3f8d4f0",
+      "modified": 1630374238764,
+      "created": 1630374201778,
+      "url": "localhost:3000/tweets",
+      "name": "/tweets",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"text\": \"otro\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_a2c9a8c4b8974e818fc4e68c2d876994"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1630374201778,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_bb965d3b9b674d8ba3e7c3c6df81c981",
+      "parentId": "fld_c5dd84e4d90d4f75a9f49e55f3f8d4f0",
+      "modified": 1629935256528,
+      "created": 1629935251503,
+      "url": "localhost:3000/tweets",
+      "name": "/tweets",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1629935251503,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_18a0066ba68d41209c18345e0d876911",
+      "parentId": "fld_c5dd84e4d90d4f75a9f49e55f3f8d4f0",
+      "modified": 1630366125834,
+      "created": 1630363299461,
+      "url": "localhost:3000/tweets/6126da051011b14c94f1f825",
+      "name": "/tweets/:id",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1629932969849,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d3f8f013bd66464a9d2cbfabc839bb05",
+      "parentId": "fld_c5dd84e4d90d4f75a9f49e55f3f8d4f0",
+      "modified": 1630373942551,
+      "created": 1629763630517,
+      "url": "localhost:3000/users",
+      "name": "/users",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"username\": \"mzunino\",\n\t\"email\": \"mzunino@example.com\",\n\t\"password\": \"ZZZZZZZZZZZZZZZZZZZZ\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_1f5c87b54ff4484997b04ba15a15d0e8"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1629763630517,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_a0118288bae64679a233f259eb993c9d",
+      "parentId": "fld_c5dd84e4d90d4f75a9f49e55f3f8d4f0",
+      "modified": 1630373968231,
+      "created": 1630373805831,
+      "url": "localhost:3000/sessions",
+      "name": "/sessions",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"username\": \"mzunino\",\n\t\"password\": \"ZZZZZZZZZZZZZZZZZZZZ\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_1f5c87b54ff4484997b04ba15a15d0e8"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1629242737115.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_e65b142e93b941f0a69b8650817b99c4",
+      "parentId": "wrk_d77adad546624b5984a015342b69560c",
+      "modified": 1627340028417,
+      "created": 1528487803073,
+      "name": "New Environment",
+      "data": {
+        "urlBase": "http://localhost:3000"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "urlBase"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1626913987927,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_129fc2cf101e4ea8b2cdb7ab292f0bca",
+      "parentId": "wrk_d77adad546624b5984a015342b69560c",
+      "modified": 1528487803082,
+      "created": 1528487803082,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_a159c8596dbd43f2a8a2444a7417d5d9",
+      "parentId": "wrk_d77adad546624b5984a015342b69560c",
+      "modified": 1626914006474,
+      "created": 1626914006474,
+      "fileName": "HA – NODE2 – Clase 02",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}

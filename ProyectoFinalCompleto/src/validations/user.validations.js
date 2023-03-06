@@ -12,7 +12,7 @@ const createUser = [
   body("password")
     .isString()
     .isLength({
-      min: 20,
+      min: 4,
     })
     .withMessage("La contraseña debe tener al menos 20 caracteres"),
 ];

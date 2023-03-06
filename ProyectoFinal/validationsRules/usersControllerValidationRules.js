@@ -6,7 +6,7 @@ const usersValidationRules = [
   }),
   body("email").isEmail(),
   body("password").isString().isLength({
-    min: 20,
+    min: 4,
   }),
 ];
 

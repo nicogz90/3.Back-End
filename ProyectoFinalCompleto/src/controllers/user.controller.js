@@ -26,6 +26,15 @@ const create = async (req, res, next) => {
   }
 };
 
+const list = async (req, res, next) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const read = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);
@@ -49,17 +58,22 @@ const generateToken = async (req, res, next) => {
     }
 
     const passwordMatches = await user.comparePassword(req.body.password);
-
     if (!passwordMatches) {
       return next({ status: 401, message: "Credenciales invalidas." });
     }
 
+    const token = jwt.sign(
+      {
+        id: user._id,
+      },
+      jwtSecret
+    );
     // Este codigo esta repetido, se podria hacer una funcion para generar el token
     res.status(201).json({
       user: {
-        username: newUser.username,
-        email: newUser.email,
-        id: newUser.id,
+        username: user.username,
+        email: user.email,
+        id: user.id,
       },
       token: token,
     });
@@ -119,6 +133,7 @@ const remove = async (req, res, next) => {
 
 module.exports = {
   create,
+  list,
   read,
   update,
   remove,

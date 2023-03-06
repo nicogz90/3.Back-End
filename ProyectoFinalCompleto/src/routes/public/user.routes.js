@@ -4,6 +4,7 @@ const { validatorMiddlewareBuilder } = require("../../middlewares/validator");
 const userValidations = require("../../validations/user.validations");
 const router = Router();
 
+router.get("/", userController.list);
 // TODO: implementar validacion del parametro id
 router.get("/:id", userController.read);
 

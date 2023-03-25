@@ -3,15 +3,22 @@ const User = require("../models/Users");
 
 const store = async (req, res) => {
   try {
-    const tweetAuthor = await User.findById(req.auth.id); // el middleware express-jwt dispone el id (que paso en el payload del token) dentro de req.auth
-
     const tweetCreated = await Tweets.create({
       ...req.body,
-      author: tweetAuthor._id,
+      author: req.auth.id,
     });
 
-    tweetAuthor.tweets.push(tweetCreated._id);
-    await tweetAuthor.save();
+    // const tweetAuthor = await User.findById(req.auth.id); // el middleware express-jwt dispone el id (que paso en el payload del token) dentro de req.auth
+    // tweetAuthor.tweets.push(tweetCreated._id);
+    // await tweetAuthor.save();
+
+    const tweetAuthor = await User.findByIdAndUpdate(
+      req.auth.id,
+      {
+        $push: { tweets: tweetCreated._id },
+      },
+      { upsert: true, new: true }
+    );
 
     res.status(204).end();
   } catch (error) {

@@ -2,9 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const routes = require("./routes");
-
 const db = require("./db");
-const { port } = require("./config");
 const logger = require("./middlewares/logger");
 const errorHandler = require("./middlewares/errorHandler");
 const app = express();
@@ -26,4 +24,4 @@ app.use(routes);
 
 app.use(errorHandler);
 
-app.listen(port, () => console.log("Servidor corriendo en el puerto " + port));
+module.exports = app;

@@ -51,7 +51,13 @@ const read = async (req, res, next) => {
 
 const generateToken = async (req, res, next) => {
   try {
-    const user = await User.findOne({ username: req.body.username });
+    const user = await User.findOne({
+      $or: [
+        { username: req.body.username },
+        { email: req.body.username },
+        // { email: { $regex: new RegExp(`^${req.body.username}$`, "i") } },
+      ],
+    });
 
     if (!user) {
       return next({ message: "Credenciales invalidas.", status: 401 });

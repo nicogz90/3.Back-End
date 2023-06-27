@@ -9,6 +9,7 @@ const create = async (req, res, next) => {
 
     const jwtPayload = {
       sub: newUser.id,
+      username: newUser.username,
     };
 
     const token = jwt.sign(jwtPayload, jwtSecret);

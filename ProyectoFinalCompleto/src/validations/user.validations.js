@@ -1,4 +1,4 @@
-const { body, oneOf, check } = require("express-validator");
+const { body, oneOf } = require("express-validator");
 
 const createUser = [
   body("email").isEmail().withMessage("El email no es valido"),
@@ -14,7 +14,7 @@ const createUser = [
     .isLength({
       min: 4,
     })
-    .withMessage("La contraseña debe tener al menos 20 caracteres"),
+    .withMessage("La contraseña debe tener al menos 4 caracteres"),
 ];
 
 const login = [
@@ -32,7 +32,7 @@ const login = [
     .isLength({
       min: 4,
     })
-    .withMessage("La contraseña debe tener al menos 20 caracteres"),
+    .withMessage("La contraseña debe tener al menos 4 caracteres"),
 ];
 
 module.exports = {

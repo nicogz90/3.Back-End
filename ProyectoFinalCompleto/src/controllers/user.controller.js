@@ -8,7 +8,7 @@ const create = async (req, res, next) => {
     const newUser = await User.create(req.body);
 
     const jwtPayload = {
-      sub: newUser.id,
+      id: newUser.id,
       username: newUser.username,
     };
 
@@ -72,6 +72,7 @@ const generateToken = async (req, res, next) => {
     const token = jwt.sign(
       {
         id: user._id,
+        username: user.username,
       },
       jwtSecret
     );

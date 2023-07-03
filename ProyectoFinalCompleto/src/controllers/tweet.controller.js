@@ -53,6 +53,12 @@ const update = async (req, res, next) => {
 
 const remove = async (req, res, next) => {
   try {
+    if (req.auth.id !== req.params.id) {
+      return next({
+        status: 403,
+        message: "No tienes permisos para eliminar este tweet.",
+      });
+    }
     const id = req.params.id;
     const deletedTweet = await Tweet.findByIdAndDelete(id);
 
